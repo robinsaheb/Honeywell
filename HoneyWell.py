@@ -1,13 +1,13 @@
 
 # coding: utf-8
 
-# In[603]:
+# In[1]:
 
 
 import time
 import random
-#from PyOCR import *
-#from Summarizer import *
+from PyOCR import *
+from Summarizer import *
 import subprocess
 from os import listdir
 from os.path import isfile, join
@@ -32,14 +32,14 @@ from bs4 import BeautifulSoup
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-# In[549]:
+# In[3]:
 
 
 stop_words = get_stop_words('english')
 english_stemmer = nltk.stem.SnowballStemmer('english')
 
 
-# In[550]:
+# In[4]:
 
 
 def file_operation():
@@ -52,7 +52,7 @@ def file_operation():
     print (document.paragraphs)
 
 
-# In[551]:
+# In[5]:
 
 
 def getPdf(file):
@@ -68,7 +68,7 @@ def getPdf(file):
     
 
 
-# In[552]:
+# In[6]:
 
 
 def getDocx(filename):
@@ -78,13 +78,13 @@ def getDocx(filename):
     
 
 
-# In[553]:
+# In[7]:
 
 
 data1 = getDocx('2.docx')
 
 
-# In[554]:
+# In[8]:
 
 
 def getText(filename):
@@ -97,13 +97,13 @@ def getText(filename):
     
 
 
-# In[568]:
+# In[9]:
 
 
 data4 = getPdf('7.pdf')
 
 
-# In[569]:
+# In[10]:
 
 
 import nltk
@@ -143,7 +143,7 @@ summaryArr = summarize(data4, 20)
 # summaryArr
 
 
-# In[571]:
+# In[13]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -183,19 +183,19 @@ def Vect(data, T):
     print(" ")
     print('Vect Completed')
     return [X, km, vectorizer]
-Vect(data, 10)
+Vect(data4, 10)
 
 
-# In[573]:
+# In[14]:
 
 
-Z = Vect(data, 10)
+Z = Vect(data4, 10)
 X = Z[0]
 km = Z[1]
 vectorizer = Z[2]
 
 
-# In[574]:
+# In[15]:
 
 
 post = """ his document is to provide an example of a weight and balance document for an aircraft type certificate application in accordance with CS-LSA. The document can be used even if the applicant does not own a DOA. It does not substitute, in any of its parts, the prescriptions of Part-21 and its amendments.
@@ -205,7 +205,7 @@ The required information can be presented entirely in this document, or in addit
 """
 
 
-# In[575]:
+# In[16]:
 
 
 new_post_vec = vectorizer.transform([post])
@@ -215,7 +215,7 @@ print(new_post_vec)
 #similar_indices = (km.labels_ == new_post_label).nonzero()[0]
 
 
-# In[576]:
+# In[17]:
 
 
 # Old Method, Not Doing that anymore
@@ -226,7 +226,7 @@ for i in similar_indices:
     similar.append((dist, summaryArr[i]))
 
 
-# In[577]:
+# In[18]:
 
 
 # New Method
@@ -236,7 +236,7 @@ for i in range(0,20):
     similar.append((dist, summaryArr[i]))
 
 
-# In[578]:
+# In[19]:
 
 
 similar = sorted(similar) 
@@ -246,7 +246,7 @@ show_at_2 = similar[1]
 show_at_3 = similar[2]
 
 
-# In[579]:
+# In[20]:
 
 
 print("=== #1 ===")
@@ -254,7 +254,7 @@ print(show_at_1)
 print()
 
 
-# In[565]:
+# In[21]:
 
 
 print("=== #2 ===")
@@ -263,7 +263,7 @@ print()
 
 
 
-# In[566]:
+# In[22]:
 
 
 print("=== #3 ===")
@@ -285,7 +285,7 @@ def getText(url):
 text = getText(articleURL)
 
 
-# In[412]:
+# In[23]:
 
 
 def process(text, n):
@@ -346,16 +346,16 @@ def final(data, post, n = 100):
 text = getPdf(str(1)+'.pdf')
 
 
-# In[585]:
+# In[173]:
 
 
 Complete = {}
 for i in range(1, 16):
     print(str(i)+'.pdf')
     text1 = getPdf(str(i)+'.pdf')
-    print(text1)
     #text = getPdf('')
     text2 = summarize(text1, 10) 
+    print(text2)
     Z = Vect(text2, 10)
     X = Z[0]
     km = Z[1]
@@ -381,22 +381,23 @@ for l in range(2, 16):
     
 
 
-# In[597]:
+# In[169]:
 
 
+similar = []
 for l in range(2, 16):
     name = str(l)+'.pdf'
     X = Complete[str(l)+'.pdf']
 
-    similar = []
+
     for i in range(1, 10):
         dist = sp.linalg.norm((new_post_vec - X[i]).toarray())
-        similar.append((dist, name, summaryArr[i]))
+        similar.append((dist, name, text2[i]))
 
     
 
 
-# In[598]:
+# In[170]:
 
 
 similar = sorted(similar) 
@@ -406,13 +407,129 @@ show_at_2 = similar[1]
 show_at_3 = similar[2]
 
 
-# In[599]:
+# In[171]:
 
 
 print(show_at_1)
 
 
-# In[600]:
+# In[172]:
+
+
+print(show_at_3)
+
+
+# In[38]:
+
+
+from pptx import Presentation
+
+
+# In[46]:
+
+
+# New one at the bottom
+"""
+#files = [x for x in os.listdir() if x.endswith(".pptx")]
+files = ['2.pptx', '1.pptx', '3.pptx', '4.pptx']
+
+
+for eachfile in files:
+    prs = Presentation(eachfile)
+    print(eachfile)
+    print("----------------------")
+    for slide in prs.slides:
+        for shape in slide.shapes:
+            if hasattr(shape, "text"):
+                print ((shape.text))
+"""
+        
+
+
+# In[238]:
+
+
+Complete1 = {}
+files = ['2.pptx', '1.pptx', '3.pptx', '4.pptx']
+
+def readPpt(data):
+    data = []
+    prs = Presentation(eachfile)
+    #print(eachfile)
+    #print("----------------------")
+    for slide in prs.slides:
+        for shape in slide.shapes:
+            if hasattr(shape, "text"):
+                data.append(shape.text)
+                
+    return '\n'.join(data)
+
+files = ['1.pptx', '2.pptx', '3.pptx', '4.pptx']
+Text = []
+for eachfile in files:
+    data = readPpt(eachfile)      
+    Text1 = (summarize(data, 10)) 
+    Text.append(Text1)
+    #print(Text)
+    print(len(Text))
+    Z = Vect(Text1, 10)
+    X1 = Z[0]
+    km = Z[1]
+    vectorizer = Z[2]
+    #Complete[str(i)+'.pdf'] = X
+    Complete1[eachfile] = X1
+
+print([len(i) for i in Text])
+#print(Text[1])
+print(len(Text))
+
+
+# In[237]:
+
+
+print(len(Text[3]))
+
+
+# In[240]:
+
+
+post1 = """A Missed approach is a procedure used when an instrument approach cannot be completed to a full-stop landing
+The Missed Approach Segment is that part of an instrument approach procedure between the missed approach point (MAP), the missed approach way-point (MAWP), or the point of arrival at the decision height and the specified missed approach NAVAID (navigational aid), intersection, fix, or waypoint, as appropriate, at the minimum IFR altitude
+"""
+new_post_vec1 = vectorizer.transform([post1])
+#print(new_post_vec1)
+files = ['2.pptx', '1.pptx', '3.pptx', '4.pptx']
+#print(Complete1)
+similar1 = []
+#print(Text)
+for i in range(1, 5):
+    name = str(i)+'.pptx'
+    X1 = Complete1[str(i)+'.pptx']
+    #print(Text)
+    for j in range(0,10):
+        try:
+            dist = sp.linalg.norm((new_post_vec1 - X1[j]).toarray())
+            #print(dist)
+            print(j)
+            similar1.append((dist, name, Text[i-1][j]))
+        except Exception as e:
+            print(e)
+            break
+similar1 = sorted(similar1) 
+print(len(similar1))
+print(similar1)
+show_at_1 = similar1[0]
+show_at_2 = similar1[1]
+show_at_3 = similar1[2]
+
+
+# In[241]:
+
+
+print(show_at_1)
+
+
+# In[242]:
 
 
 print(show_at_2)

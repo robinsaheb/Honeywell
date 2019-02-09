@@ -19,5 +19,5 @@ class PyOCR:
             self.text = algo.pipe(self.img_name).result
         return self.text
 
-s = PyOCR("https://raw.githubusercontent.com/schollz/python-ocr/master/test.jpg", False).toText("algorithmia_smartOCR")
-s = PyOCR("test.jpg", False).toText("tesseract")
+#s = PyOCR("https://raw.githubusercontent.com/schollz/python-ocr/master/test.jpg", False).toText("algorithmia_smartOCR")
+#s = PyOCR("test.jpg", False).toText("tesseract")
