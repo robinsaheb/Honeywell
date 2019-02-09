@@ -3,10 +3,7 @@
 <head>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"-->
-    <link href="{{ url_for('static', filename='css/resultcards.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/search.css') }}" rel="stylesheet">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/results.js') }}"></script>
 </head>
 
 <body>
@@ -15,17 +12,17 @@
     </div>
     <div id="search-bar">
         <form class="example" action="/search" method="post" style="max-width:35vw;text-align:center">
-            <input id="search-bar-input" type="text" placeholder="Search.." name="search">
+            <input type="text" placeholder="Search.." value="{{ squery | safe }}" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
     <div id="results-panel">
-
+        
     </div>
     <div id="right-bar">
+
     </div>
     <script>
-        document.getElementById("search-bar-input").defaultValue = {{ squery | safe }}
         loadMiniResultCards('{{ results | safe }}', "id");
     </script> 
 </body>
