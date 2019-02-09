@@ -1,6 +1,7 @@
 import os 
-import Image
+from PIL import Image
 import pytesseract
+import Algorithmia
 
 class PyOCR:
     def __init__(self, image, preprocess=True):
@@ -12,8 +13,11 @@ class PyOCR:
     def toText(self, method='tesseract'):
         if method == 'tesseract':
             self.text = pytesseract.image_to_string(Image.open(self.img_name))
-        else if method == 'algorithmia_smartOCR'
+        elif method == 'algorithmia_smartOCR':
             client = Algorithmia.client('simwMUzTtxRs30OR13kELwpYPnM1')
             algo = client.algo('ocr/SmartOCR/0.2.6')
             self.text = algo.pipe(self.img_name).result
         return self.text
+
+s = PyOCR("https://raw.githubusercontent.com/schollz/python-ocr/master/test.jpg", False).toText("algorithmia_smartOCR")
+s = PyOCR("test.jpg", False).toText("tesseract")
