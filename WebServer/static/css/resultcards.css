@@ -1,0 +1,120 @@
+.result-card {
+    max-width:50vw;
+    min-height:20vh;
+    max-height:40vh;
+    margin:20px auto 20px auto;
+    background-color: white;
+    border-radius: 17px;
+    border-color: #0006;
+    border-style:solid;
+    border-width:1.5px;
+    padding: 1%;
+    box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.results-header {
+    display: flex;
+    width:100%;
+}
+
+.result-author-card {
+    width:100%;
+    display:inline-block;
+    float:left;
+}
+
+.result-author-pic {
+    width:40px;
+    height:40px;
+    display:inline-block;
+}
+
+.result-author-pic-img {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    margin:auto;
+    object-fit:cover;
+}
+
+.result-author-name {
+    display:inline-block;
+    vertical-align:top;
+    line-height:3;
+}
+
+.result-author-card a {
+    color:rgb(3, 113, 0);
+}
+.result-author-card a:hover {
+    color:rgb(1, 32, 0);
+}
+
+.result-datetime {
+    display:inline-block;
+    float:right;
+}
+
+.result-area {
+    margin:auto;
+    background-color: white;
+    max-width:100%;
+    height:15vh;
+    border-radius:7px;
+    border-color:#0006;
+    border-style:solid;
+    border-width:0.1px;
+    padding: 1%;
+}
+
+.result-text {
+    max-width:100%;
+}
+
+.result-interactions {
+    width:100%;
+    min-height:2vh;
+    margin: 10px;
+}
+
+.result-interactions:hover{
+    width:100%;
+    min-height:2vh;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.result-like-button {
+    display:inline-block;
+    content: "like";
+    width: 10%;
+    height:100%;
+    border-width:0 1px 0 0;
+}
+
+.result-comment-button {
+    display:inline-block;
+    content: "share";
+    width: 10%;
+    height:100%;
+    border-width:0 1px 0 1px;
+}
+
+.result-share-button {
+    display:inline-block;
+    content: "Share";
+    width: 10%;
+    height:100%;
+    border-width:0 0 0 1px;
+}
+
+.result-comments {
+    display:block;
+    width:100%;
+}
+
+.glyphicon-heart {
+    color:red;
+}

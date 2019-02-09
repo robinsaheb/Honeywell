@@ -1,0 +1,75 @@
+<div class="container posts" id="'+data['post-id']+'">
+        <div class="post-header container">
+            <div class="post-author-card">
+                <a href="/profile?user='+data['author-id']+'">
+                    <div class="post-author">
+                        <div class="post-author-pic">
+                            <img class="post-author-pic-img" src="'+data['author-pic']+'" />
+                        </div>
+                        <div class="post-author-name">
+                            '+data['author-name']+'
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="post-datetime">
+                '+data['time']+'
+            </div>
+        </div>
+    
+        <div class="post-body container">
+            <div class="post-text">
+                '+data['text']+'
+            </div>
+        </div>
+        <div class="post-interactions container">
+            <div class="post-like-button" onclick="makeLikePost(\''+data['post-id']+'\')">
+                <div class="glyphicon '+data['like-symbol]+'"></div>
+                '+data['stats-likes']+'
+            </div>
+            <div class="post-comment-button" onclick="makeCommentPost(\''+data['post-id']+'\')">
+                <div class="glyphicon glyphicon-comment"></div>
+                '+data['stats-comments']+'
+            </div>
+            <div class="post-share-button" onclick="makeSharePost(\''+data['post-id']+'\')">
+                <div class="glyphicon glyphicon-share"></div>
+                '+data['stats-shares']+'
+            </div>
+        </div>
+        <div class="post-comments container">
+            <div class="post-comments-create">
+    
+            </div>
+            <div class="post-comments-wrapper">
+    
+            </div>
+        </div>
+    </div>
+
+
+<!--
+    Result area cards
+-->
+
+<div class="container result-card">
+    <div class="result-area container">
+        <div class="result-text">
+            '+data['result-text']+'
+        </div>
+        <div class="result-image">
+            '+data['result-image']+'
+        </div>
+    </div>
+    <div class="result-footer">
+        <div class="result-doc-name">
+            <a href="'+data['result-doc-link']+'">'+data['result-doc-name']+'</a>
+        </div>
+        <div class="result-modified-date">
+            '+data['result-doc-date']+'
+        </div>
+        <div class="result-feedback">
+            <div class="result-like" onclick="likeResult(\'' + data['result-id'] + '\')"></div>
+            <div class="result-dislike" onclick="dislikeResult(\'' + data['result-id'] + '\')"></div>
+        </div>
+    </div>
+</div>
