@@ -385,11 +385,10 @@ for l in range(2, 16):
 
 
 similar = []
-for l in range(2, 16):
+for l in range(1, 16):
     name = str(l)+'.pdf'
     X = Complete[str(l)+'.pdf']
-
-
+    
     for i in range(1, 10):
         dist = sp.linalg.norm((new_post_vec - X[i]).toarray())
         similar.append((dist, name, text2[i]))
