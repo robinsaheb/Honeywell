@@ -1,0 +1,69 @@
+# /root/Desktop/HoneyWell
+
+Date : 2019-02-10 13:29:56
+
+Total : 37 files,  4241 codes, 469 comments, 674 blanks, all 5384 lines
+
+## Languages
+| language | files | code | comment | blank | total |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| jupyter | 1 | 2,235 | 0 | 1 | 2,236 |
+| Python | 18 | 1,441 | 455 | 575 | 2,471 |
+| CSS | 4 | 233 | 3 | 41 | 277 |
+| HTML | 8 | 224 | 5 | 43 | 272 |
+| Markdown | 2 | 67 | 0 | 5 | 72 |
+| JavaScript | 3 | 40 | 5 | 8 | 53 |
+| Properties | 1 | 1 | 1 | 1 | 3 |
+
+## Directories
+| path | files | code | comment | blank | total |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| . | 37 | 4,241 | 469 | 674 | 5,384 |
+| .VSCodeCounter | 1 | 65 | 0 | 5 | 70 |
+| WebServer | 25 | 1,058 | 147 | 341 | 1,546 |
+| WebServer/HoneyServer | 6 | 432 | 115 | 222 | 769 |
+| WebServer/static | 7 | 273 | 8 | 49 | 330 |
+| WebServer/static/css | 5 | 235 | 8 | 41 | 284 |
+| WebServer/static/js | 2 | 38 | 0 | 8 | 46 |
+| WebServer/templates | 9 | 248 | 5 | 49 | 302 |
+
+## Files
+| filename | language | code | comment | blank | total |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| [.VSCodeCounter/results.md](file:///root/Desktop/HoneyWell/.VSCodeCounter/results.md) | Markdown | 65 | 0 | 5 | 70 |
+| [.gitattributes](file:///root/Desktop/HoneyWell/.gitattributes) | Properties | 1 | 1 | 1 | 3 |
+| [DirectSearch.py](file:///root/Desktop/HoneyWell/DirectSearch.py) | Python | 205 | 71 | 41 | 317 |
+| [Doc2vec.py](file:///root/Desktop/HoneyWell/Doc2vec.py) | Python | 176 | 62 | 33 | 271 |
+| [HoneyWell.py](file:///root/Desktop/HoneyWell/HoneyWell.py) | Python | 253 | 125 | 172 | 550 |
+| [Honeywell.ipynb](file:///root/Desktop/HoneyWell/Honeywell.ipynb) | jupyter | 2,235 | 0 | 1 | 2,236 |
+| [ImagePreprocess.py](file:///root/Desktop/HoneyWell/ImagePreprocess.py) | Python | 180 | 55 | 62 | 297 |
+| [PyOCR.py](file:///root/Desktop/HoneyWell/PyOCR.py) | Python | 19 | 2 | 2 | 23 |
+| [README.md](file:///root/Desktop/HoneyWell/README.md) | Markdown | 2 | 0 | 0 | 2 |
+| [Speech2Text.py](file:///root/Desktop/HoneyWell/Speech2Text.py) | Python | 0 | 0 | 1 | 1 |
+| [Summarizer.py](file:///root/Desktop/HoneyWell/Summarizer.py) | Python | 13 | 1 | 2 | 16 |
+| [WebServer/Database.py](file:///root/Desktop/HoneyWell/WebServer/Database.py) | Python | 40 | 1 | 6 | 47 |
+| [WebServer/HoneyServer/Additional.py](file:///root/Desktop/HoneyWell/WebServer/HoneyServer/Additional.py) | Python | 9 | 1 | 2 | 12 |
+| [WebServer/HoneyServer/HoneyWell.py](file:///root/Desktop/HoneyWell/WebServer/HoneyServer/HoneyWell.py) | Python | 209 | 58 | 153 | 420 |
+| [WebServer/HoneyServer/ImagePreprocess.py](file:///root/Desktop/HoneyWell/WebServer/HoneyServer/ImagePreprocess.py) | Python | 180 | 55 | 62 | 297 |
+| [WebServer/HoneyServer/PyOCR.py](file:///root/Desktop/HoneyWell/WebServer/HoneyServer/PyOCR.py) | Python | 21 | 0 | 2 | 23 |
+| [WebServer/HoneyServer/Speech2Text.py](file:///root/Desktop/HoneyWell/WebServer/HoneyServer/Speech2Text.py) | Python | 0 | 0 | 1 | 1 |
+| [WebServer/HoneyServer/Summarizer.py](file:///root/Desktop/HoneyWell/WebServer/HoneyServer/Summarizer.py) | Python | 13 | 1 | 2 | 16 |
+| [WebServer/__init__.py](file:///root/Desktop/HoneyWell/WebServer/__init__.py) | Python | 65 | 18 | 14 | 97 |
+| [WebServer/setup.py](file:///root/Desktop/HoneyWell/WebServer/setup.py) | Python | 0 | 0 | 1 | 1 |
+| [WebServer/static/css/bootstrap.min.js](file:///root/Desktop/HoneyWell/WebServer/static/css/bootstrap.min.js) | JavaScript | 2 | 5 | 0 | 7 |
+| [WebServer/static/css/dashboard.css](file:///root/Desktop/HoneyWell/WebServer/static/css/dashboard.css) | CSS | 124 | 3 | 24 | 151 |
+| [WebServer/static/css/main.css](file:///root/Desktop/HoneyWell/WebServer/static/css/main.css) | CSS | 0 | 0 | 1 | 1 |
+| [WebServer/static/css/resultcards.css](file:///root/Desktop/HoneyWell/WebServer/static/css/resultcards.css) | CSS | 103 | 0 | 16 | 119 |
+| [WebServer/static/css/search.css](file:///root/Desktop/HoneyWell/WebServer/static/css/search.css) | CSS | 6 | 0 | 0 | 6 |
+| [WebServer/static/js/main.js](file:///root/Desktop/HoneyWell/WebServer/static/js/main.js) | JavaScript | 0 | 0 | 1 | 1 |
+| [WebServer/static/js/results.js](file:///root/Desktop/HoneyWell/WebServer/static/js/results.js) | JavaScript | 38 | 0 | 7 | 45 |
+| [WebServer/templates/404.html](file:///root/Desktop/HoneyWell/WebServer/templates/404.html) | HTML | 49 | 0 | 10 | 59 |
+| [WebServer/templates/500.html](file:///root/Desktop/HoneyWell/WebServer/templates/500.html) | HTML | 3 | 0 | 0 | 3 |
+| [WebServer/templates/anon_dashboard.html](file:///root/Desktop/HoneyWell/WebServer/templates/anon_dashboard.html) | HTML | 78 | 0 | 19 | 97 |
+| [WebServer/templates/cards_templates.html](file:///root/Desktop/HoneyWell/WebServer/templates/cards_templates.html) | HTML | 66 | 3 | 6 | 75 |
+| [WebServer/templates/image_search.py](file:///root/Desktop/HoneyWell/WebServer/templates/image_search.py) | Python | 24 | 0 | 6 | 30 |
+| [WebServer/templates/layout.html](file:///root/Desktop/HoneyWell/WebServer/templates/layout.html) | HTML | 0 | 0 | 1 | 1 |
+| [WebServer/templates/search.html](file:///root/Desktop/HoneyWell/WebServer/templates/search.html) | HTML | 28 | 2 | 5 | 35 |
+| [WebServer/templates/user_dashboard.html](file:///root/Desktop/HoneyWell/WebServer/templates/user_dashboard.html) | HTML | 0 | 0 | 1 | 1 |
+| [WebServer/templates/view_repo.html](file:///root/Desktop/HoneyWell/WebServer/templates/view_repo.html) | HTML | 0 | 0 | 1 | 1 |
+| [test.py](file:///root/Desktop/HoneyWell/test.py) | Python | 34 | 5 | 13 | 52 |

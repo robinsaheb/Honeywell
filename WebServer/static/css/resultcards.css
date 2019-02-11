@@ -1,7 +1,6 @@
 .result-card {
     max-width:50vw;
     min-height:20vh;
-    max-height:40vh;
     margin:20px auto 20px auto;
     background-color: white;
     border-radius: 17px;
@@ -61,7 +60,7 @@
     margin:auto;
     background-color: white;
     max-width:100%;
-    height:15vh;
+    min-height:15vh;
     border-radius:7px;
     border-color:#0006;
     border-style:solid;

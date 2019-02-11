@@ -25,9 +25,11 @@
     <div id="right-bar">
     </div>
     <script>
-        document.getElementById("search-bar-input").defaultValue = {{ squery | safe }}
-        loadMiniResultCards('{{ results | safe }}', "id");
+    {% autoescape true %}
+        document.getElementById("search-bar-input").defaultValue = {{ squery | safe }} ;
+        loadMiniResultCards(JSON.stringify({{ results | safe }}), "id");
     </script> 
+    {% endautoescape %}
 </body>
 
 </html>

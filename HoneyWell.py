@@ -38,20 +38,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 stop_words = get_stop_words('english')
 english_stemmer = nltk.stem.SnowballStemmer('english')
 
-
-# In[4]:
-
-
-def file_operation():
-    data = []
-    mypath = "Users/sahebsingh/Desktop/Projects/Honeywell/Honeywell" #Path to folder/Directory
-    
-    list_files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    for k in range(len(list_files)):
-        document = docx.Document(list_files[k])
-    print (document.paragraphs)
-
-
 # In[5]:
 
 
@@ -63,7 +49,6 @@ def getPdf(file):
     for i in range(0, page_number):
         pageObj = pdfReader.getPage(i)
         data.append(pageObj.extractText())
-        
     return '\n'.join(data)
     
 
@@ -100,7 +85,7 @@ def getText(filename):
 # In[9]:
 
 
-data4 = getPdf('7.pdf')
+data4 = getPdf('Data/7.pdf')
 
 
 # In[10]:
@@ -118,19 +103,15 @@ from heapq import nlargest
 
 
 def summarize(text, n):
-    
     sents = sent_tokenize(text)
     #assert n <= len(sents)
     if(n>=len(sents)):
         n = random.randint(int(len(sents)/2), len(sents))
-    
     wordSent = word_tokenize(text.lower())
     stopWords = set(stopwords.words('english')+list(punctuation))
-    
     wordSent= [word for word in wordSent if word not in stopWords]
     freq = FreqDist(wordSent)
     ranking = defaultdict(int)
-    
     for i, sent in enumerate(sents):
         for w in word_tokenize(sent.lower()):
             if w in freq:
@@ -150,7 +131,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 import numpy as np
 def Vect(data, T):
-    
     vectorizer = TfidfVectorizer(max_df=0.5,min_df=2,stop_words='english')
     X = vectorizer.fit_transform(summaryArr)
     km = KMeans(n_clusters = T, init = 'k-means++', max_iter = 100, n_init = 2, verbose = True)
@@ -183,6 +163,8 @@ def Vect(data, T):
     print(" ")
     print('Vect Completed')
     return [X, km, vectorizer]
+
+
 Vect(data4, 10)
 
 
@@ -317,8 +299,6 @@ def final(data, post, n = 100):
     if type1 == 'pdf':
         text = getPdf(data)
         Output = process(text)
-        
-        
     if type1 == ('ppt' or 'pptx'):
         text = #Complete for PPT
         Output = process(text)
@@ -351,8 +331,8 @@ text = getPdf(str(1)+'.pdf')
 
 Complete = {}
 for i in range(1, 16):
-    print(str(i)+'.pdf')
-    text1 = getPdf(str(i)+'.pdf')
+    print("./Data/" + str(i)+'.pdf')
+    text1 = getPdf("./Data/" + str(i)+'.pdf')
     #text = getPdf('')
     text2 = summarize(text1, 10) 
     print(text2)
@@ -476,7 +456,7 @@ for eachfile in files:
     km = Z[1]
     vectorizer = Z[2]
     #Complete[str(i)+'.pdf'] = X
-    Complete1[eachfile] = X1
+    Complete[eachfile] = X1
 
 print([len(i) for i in Text])
 #print(Text[1])
@@ -501,9 +481,10 @@ files = ['2.pptx', '1.pptx', '3.pptx', '4.pptx']
 #print(Complete1)
 similar1 = []
 #print(Text)
-for i in range(1, 5):
-    name = str(i)+'.pptx'
-    X1 = Complete1[str(i)+'.pptx']
+for i in Complete:
+    #name = str(i)+'.pptx'
+    name = i
+    X1 = Complete[i]#[str(i)+'.pptx']
     #print(Text)
     for j in range(0,10):
         try:
@@ -532,4 +513,38 @@ print(show_at_1)
 
 
 print(show_at_2)
+"""
+from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
 
+def resolveQuery(query):
+    # Add definition here 
+    #text = query + "IT WORKS LOLOLOLOL!" # Replace with suitable query -> Value
+    post = query 
+    new_post_vec = vectorizer.transform([post])
+    print(new_post_vec)
+    similar = []
+    gg = [i for i in Complete]
+    #print(Text)
+    for i in range(0, len(gg)):
+        #name = str(i)+'.pptx'
+        name = gg[i]
+        X1 = Complete[gg[i]]#[str(i)+'.pptx']
+        #print(Text)
+        for j in range(0,10):
+            try:
+                dist = sp.linalg.norm((new_post_vec1 - X1[j]).toarray())
+                #print(dist)
+                print(j)
+                similar.append((dist, name, Text[i][j]))
+            except Exception as e:
+                print(e)
+                break
+    similar = sorted(similar) 
+    print(similar)
+    return similar
+        
+
+server = SimpleJSONRPCServer(('localhost', 1006))
+server.register_function(resolveQuery)
+print("Start server")
+server.serve_forever()"""

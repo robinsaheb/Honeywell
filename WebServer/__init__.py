@@ -18,6 +18,12 @@ SESSION_TYPE = "filesystem"
 app.config.from_object(__name__)
 #Session(app)
 
+import jinja2
+import os
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'])
+
 #s = socket(AF_INET, SOCK_STREAM)
 #s.connect(('0.0.0.0', 8194)) # Our socket for Calling Search Worker
 
@@ -65,7 +71,22 @@ def search():
             #s.send(squery)
             rres = conn.resolveQuery(squery)
             print("Query Sent!")
+            #for i in range(0, 5):
+            #    rres.append(gh[i])
+            #for i in rres:
+            #    i['result-text'] = Summarizer().summary(i['result-text'])
             #tg = Summarizer().summary(tt)
+            jk = list()
+            pk = list()
+            for i in rres:
+                if squery in i['result-text']:
+                    jk.append(i)
+                else:
+                    pk.append(i)
+            rres = list(jk + pk) # rank exact matches
+            #print(rres)
+            #print(jk)
+            #print(pk)
             #rres = [{'result-text':tg, 'result-image':"asd", 'result-doc-link':'google.com', 'result-doc-name':'Testing', 'result-modified-date':'01-2-2019', 'result-id':"123"}]
             return render_template("/search.html", squery = json.dumps(squery), results = json.dumps({"data":rres, "type":"results"}))
         except Exception as e:
